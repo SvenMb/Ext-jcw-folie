@@ -22,7 +22,7 @@ SERIAL=/dev/ttyACM0
 DAEMON=/home/sven/go/bin/bridge
 
 # What arguments to pass to octoprint, usually no need to touch this
-DAEMON_ARGS="-q -m $MQTT -u $MQTTUSER -P $MQTTPASS -t $TOPIC -p $SERIAL 1>>/dev/null 2>>/dev/null"
+DAEMON_ARGS="-q -m $MQTT -u $MQTTUSER -P $MQTTPASS -t $TOPIC -p $SERIAL"
 
 # Umask of files LEDClock generates, Change this to 000 if running octoprint as its own, separate user
 UMASK=022
