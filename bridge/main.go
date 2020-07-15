@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sync"
 	"strings"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
@@ -43,6 +44,9 @@ func main() {
 		dev.Write(append(msg.Payload(), '\n'))
 	})
 	mqttCheck(t)
+	
+	var wg sync.WaitGroup
+    	wg.Add(1)  
 
 	go func() {
 		scanner := bufio.NewScanner(dev)
@@ -67,13 +71,17 @@ func main() {
 		os.Exit(1)
 	}()
 
-	reader := bufio.NewReader(os.Stdin)
-	for {
-		text, err := reader.ReadString('\n')
-		if err != nil {
-			break
-		}
+	if !*quietFlag {
+		reader := bufio.NewReader(os.Stdin)
+		for {
+		    text, err := reader.ReadString('\n')
+		    if err != nil {
+		    	break
+		    }
 		dev.Write([]byte(text))
+		}
+  	} else {
+	       wg.Wait()
 	}
 }
 
