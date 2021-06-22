@@ -1,7 +1,9 @@
 ## Folie v2
 
 This is imported from:
-https://git.jeelabs.org/jcw/folie.git
+https://git.jeelabs.org/jcw/folie - Version 2.15 (last version there - HEAD)
+
+I have added mqtt-authentication to the bridge and a example startup-script. 
 
 ![](https://img.shields.io/badge/work-In_Progress-red.svg)
 [![GoDoc](https://godoc.org/github.com/jeelabs/folie?status.svg)](http://godoc.org/github.com/jeelabs/folie)
