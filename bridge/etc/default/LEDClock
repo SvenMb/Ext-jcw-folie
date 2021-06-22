@@ -1,7 +1,7 @@
-# Configuration for /etc/init.d/octoprint
+# Configuration for /etc/init.d/LEDClock
 
 # The init.d script will only run if this variable non-empty.
-LEDClock_USER=sven
+LEDClock_USER=UNIXUSER
 
 # which host is running mqtt broker, default is tcp://127.0.0.1:1883
 MQTT=tcp://127.0.0.1:1883
@@ -19,9 +19,9 @@ TOPIC="LEDClock/%"
 SERIAL=/dev/ttyACM0
 
 # Path to the LEDClock executable, use this to override the default setting "/usr/bin/LEDClock"
-DAEMON=/home/sven/go/bin/bridge
+DAEMON=/home/UNIXUSER/go/bin/bridge
 
-# What arguments to pass to octoprint, usually no need to touch this
+# What arguments to pass to LEDCLock, usually no need to touch this
 DAEMON_ARGS="-q -m $MQTT -u $MQTTUSER -P $MQTTPASS -t $TOPIC -p $SERIAL"
 
 # Umask of files LEDClock generates, Change this to 000 if running octoprint as its own, separate user
